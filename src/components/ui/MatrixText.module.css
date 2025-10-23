@@ -1,0 +1,15 @@
+.matrixText {
+  display: inline-block;
+  font-family: 'Space Mono', monospace;
+  letter-spacing: 0.05em;
+  white-space: pre-wrap;
+  transition: opacity 300ms ease;
+}
+
+.matrixText:not(.complete) {
+  opacity: 0.9;
+}
+
+.complete {
+  opacity: 1;
+}

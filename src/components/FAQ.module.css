@@ -1,0 +1,243 @@
+/* FAQ Section - Dotify-inspired accordion with glass morphism */
+.faq {
+  padding: 120px 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.98) 0%,
+    var(--color-black) 50%,
+    rgba(0, 0, 0, 0.98) 100%
+  );
+  position: relative;
+  overflow: hidden;
+}
+
+.faq::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    circle at 30% 20%, 
+    rgba(255, 255, 255, 0.01) 0%, 
+    transparent 60%
+  );
+  z-index: 1;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.title {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(255, 255, 255, 0.7) 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.6;
+}
+
+/* FAQ List */
+.faqList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* FAQ Items */
+.faqItem {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.itemGlass {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  z-index: 1;
+}
+
+/* Question Button */
+.question {
+  width: 100%;
+  padding: 24px 28px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+.question:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.question.active {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.questionText {
+  font-size: 18px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  text-align: left;
+  line-height: 1.5;
+  transition: color 0.3s ease;
+}
+
+.question:hover .questionText {
+  color: rgba(255, 255, 255, 1);
+}
+
+.chevron {
+  color: rgba(255, 255, 255, 0.6);
+  transition: color 0.3s ease;
+  flex-shrink: 0;
+  margin-left: 16px;
+}
+
+.question:hover .chevron {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Answer */
+.answer {
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.answerContent {
+  padding: 0 28px 28px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.answerContent p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 20px 0 0;
+}
+
+/* Contact Info */
+.contactInfo {
+  text-align: center;
+  margin-top: 60px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.contactText {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.contactLink {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: all 0.3s ease;
+}
+
+.contactLink:hover {
+  color: rgba(255, 255, 255, 1);
+  text-decoration-color: rgba(255, 255, 255, 0.6);
+}
+
+/* Hover effects for items */
+.faqItem:hover {
+  transform: translateY(-2px);
+}
+
+.faqItem:hover .itemGlass {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .faq {
+    padding: 80px 0;
+  }
+
+  .container {
+    padding: 0 16px;
+  }
+
+  .title {
+    font-size: 36px;
+  }
+
+  .subtitle {
+    font-size: 18px;
+  }
+
+  .question {
+    padding: 20px;
+  }
+
+  .questionText {
+    font-size: 16px;
+  }
+
+  .answerContent {
+    padding: 0 20px 24px;
+  }
+
+  .answerContent p {
+    font-size: 15px;
+  }
+
+  .header {
+    margin-bottom: 60px;
+  }
+
+  .contactInfo {
+    margin-top: 40px;
+  }
+}
+
+/* Enhanced hover effects for desktop */
+@media (min-width: 769px) {
+  .faqItem:hover {
+    transform: translateY(-4px);
+  }
+  
+  .faqItem:hover .itemGlass {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  }
+}

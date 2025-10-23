@@ -1,0 +1,281 @@
+/* Features Section - Dotify-inspired cards with glass morphism */
+.features {
+  min-height: 100vh;
+  padding: 120px 0;
+  background: linear-gradient(
+    135deg,
+    var(--color-black) 0%,
+    rgba(0, 0, 0, 0.98) 50%,
+    var(--color-black) 100%
+  );
+  position: relative;
+  overflow: hidden;
+}
+
+.features::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.02) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.01) 0%, transparent 50%);
+  z-index: 1;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.title {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(255, 255, 255, 0.7) 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.6);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Features Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 60px;
+}
+
+/* Feature Cards */
+.featureCard {
+  position: relative;
+  padding: 32px;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Glass morphism background */
+.cardGlass {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 16px;
+  z-index: 1;
+}
+
+/* Gradient border */
+.cardBorder {
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.2) 0%,
+    rgba(255, 255, 255, 0.05) 50%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+  border-radius: 16px;
+  z-index: 2;
+}
+
+.cardBorder::before {
+  content: '';
+  position: absolute;
+  inset: 1px;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+}
+
+/* Card content */
+.cardContent {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  text-align: left;
+  padding: 24px;
+}
+
+.cardTitle {
+  font-size: 24px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 16px;
+  letter-spacing: -0.01em;
+  text-align: left;
+}
+
+.cardDescription {
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.6);
+  flex: 1;
+  text-align: left;
+}
+
+/* Hover glow effect */
+.cardGlow {
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0.1)
+  );
+  border-radius: 18px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 0;
+  filter: blur(8px);
+}
+
+/* Hover effects - dotify style */
+.featureCard:hover .cardGlow {
+  opacity: 1;
+}
+
+.featureCard:hover .cardTitle {
+  color: rgba(255, 255, 255, 1);
+  transform: translateY(-2px);
+}
+
+.featureCard:hover .cardDescription {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.featureCard:hover .cardGlass {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* 3D hover effect like dotify */
+.featureCard:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.4),
+    0 10px 25px rgba(255, 255, 255, 0.1);
+}
+
+/* Corner borders - only bottom-left and top-right */
+.featureCard::before,
+.featureCard::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 4;
+}
+
+.featureCard::before {
+  bottom: 8px;
+  left: 8px;
+  border-top: none;
+  border-right: none;
+  border-bottom-left-radius: 4px;
+}
+
+.featureCard::after {
+  top: 8px;
+  right: 8px;
+  border-bottom: none;
+  border-left: none;
+  border-top-right-radius: 4px;
+}
+
+.featureCard:hover::before,
+.featureCard:hover::after {
+  opacity: 1;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .features {
+    padding: 80px 0;
+  }
+
+  .container {
+    padding: 0 16px;
+  }
+
+  .title {
+    font-size: 36px;
+  }
+
+  .subtitle {
+    font-size: 18px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .featureCard {
+    padding: 24px;
+    min-height: 240px;
+  }
+
+  .featureCard:hover {
+    transform: translateY(-8px) scale(1.01);
+  }
+
+  .header {
+    margin-bottom: 60px;
+  }
+}
+
+/* Medium screens - 2 columns */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+
+/* Enhanced effects for larger screens */
+@media (min-width: 1200px) {
+  .grid {
+    gap: 40px;
+  }
+
+  .featureCard {
+    padding: 40px;
+  }
+}

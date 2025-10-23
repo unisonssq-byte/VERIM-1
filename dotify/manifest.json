@@ -1,0 +1,27 @@
+{
+  "name": "Dotify — лучший и бесплатный музыкальный плеер",
+  "short_name": "Dotify",
+  "description": "Современный музыкальный плеер для. Объединяет Spotify, SoundCloud, VK Music, Yandex и так далее в одном приложении. Скачать бесплатно",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/dotify.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/dotify.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["music", "entertainment", "utilities"],
+  "lang": "ru",
+  "dir": "ltr"
+}

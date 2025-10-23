@@ -1,0 +1,428 @@
+/* Hero Section - Glass Morphism & Floating Elements */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  
+  /* Enhanced background with multiple gradients */
+  background: 
+    radial-gradient(ellipse at 70% 30%, rgba(0, 0, 0, 0.02) 0%, transparent 70%),
+    radial-gradient(ellipse at 30% 70%, rgba(255, 255, 255, 0.01) 0%, transparent 60%),
+    var(--color-black);
+}
+
+/* Background overlay for depth */
+.backgroundOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.1) 0%,
+    rgba(0, 0, 0, 0.05) 50%,
+    rgba(0, 0, 0, 0.1) 100%
+  );
+  z-index: 1;
+}
+
+/* Radial gradient effect */
+.radialGradient {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.03) 0%,
+    rgba(255, 255, 255, 0.01) 50%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.container {
+  text-align: center;
+  max-width: 1200px;
+  padding: 40px 20px;
+  position: relative;
+  z-index: 10;
+}
+
+/* Floating decorative icons */
+.floatingIcon {
+  position: absolute;
+  color: rgba(255, 255, 255, 0.15);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.icon1 {
+  top: 15%;
+  left: 8%;
+  animation: float 6s ease-in-out infinite;
+}
+
+.icon2 {
+  top: 65%;
+  right: 12%;
+  animation: float 8s ease-in-out infinite;
+  animation-delay: -2s;
+}
+
+.icon3 {
+  bottom: 12%;
+  left: 22%;
+  animation: float 10s ease-in-out infinite;
+  animation-delay: -4s;
+}
+
+.icon4 {
+  top: 8%;
+  right: 25%;
+  animation: float 12s ease-in-out infinite;
+  animation-delay: -6s;
+}
+
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.1;
+  }
+  50% { 
+    transform: translateY(-20px) rotate(5deg);
+    opacity: 0.15;
+  }
+}
+
+/* Logo container without background */
+.logoContainer {
+  margin-bottom: 80px;
+  cursor: pointer;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.logoPlaceholder {
+  width: 200px;
+  height: 200px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
+  overflow: hidden;
+  position: relative;
+}
+
+.logoImage {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  border-radius: 16px;
+  transition: all 0.3s ease;
+}
+
+.logoText {
+  font-size: 48px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--color-white);
+  font-family: 'Space Mono', monospace;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+/* Motto section with enhanced typography */
+.motto {
+  margin-bottom: 100px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mottoText {
+  font-size: clamp(32px, 5vw, 64px);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--color-white);
+  font-family: 'Space Mono', monospace;
+  text-align: center;
+  letter-spacing: -0.02em;
+  
+  /* Enhanced text shadow for depth */
+  text-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.5),
+    0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+/* Scroll down arrow */
+.scrollArrow {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  cursor: pointer;
+  
+  /* Glass morphism container */
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  color: rgba(255, 255, 255, 0.8);
+  
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  
+  box-shadow: 
+    0 8px 25px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.scrollArrow:hover {
+  transform: translateX(-50%) translateY(-4px) scale(1.1);
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 1);
+  box-shadow: 
+    0 12px 35px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .hero {
+    min-height: 100vh;
+    padding: 80px 0 40px;
+  }
+  
+  .container {
+    padding: 20px 16px;
+  }
+  
+  .logoGlass {
+    padding: 6px;
+  }
+  
+  .logoPlaceholder {
+    width: 160px;
+    height: 160px;
+  }
+  
+  .logoText {
+    font-size: 36px;
+  }
+  
+  .motto {
+    margin-bottom: 60px;
+  }
+  
+  .floatingIcon {
+    display: none;
+  }
+  
+  .scrollArrow {
+    bottom: 20px;
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* Enhanced hover effects for desktop */
+@media (min-width: 769px) {
+  .logoContainer:hover .logoGlass {
+    transform: translateY(-8px) scale(1.02);
+  }
+  
+  .logoContainer:hover .logoText {
+    text-shadow: 
+      0 0 30px rgba(255, 255, 255, 0.4),
+      0 2px 4px rgba(0, 0, 0, 0.5);
+  }
+}
+
+/* Modal styles */
+.modalBackdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 1000;
+  cursor: pointer;
+}
+
+.modalContent {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) !important;
+  width: 90vw;
+  max-width: 800px;
+  height: auto;
+  background: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  z-index: 1001;
+  overflow: hidden;
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.closeButton {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.8);
+  z-index: 1002;
+  transition: all 0.3s ease;
+}
+
+.closeButton:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 1);
+  transform: scale(1.1);
+}
+
+.manifestoWrapper {
+  padding: 40px;
+  overflow: hidden;
+}
+
+.manifestoContent {
+  text-align: left;
+}
+
+.manifestoTitle {
+  font-size: 32px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 40px;
+  letter-spacing: 4px;
+  font-family: 'Courier New', monospace;
+  text-align: center;
+}
+
+.manifestoLines {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.lineContainer {
+  margin-bottom: 25px;
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.lineNumber {
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+  color: rgba(89, 219, 255, 0.6);
+  font-weight: bold;
+  user-select: none;
+  min-width: 30px;
+  margin-top: 5px;
+}
+
+.line {
+  font-size: 18px;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  text-align: left;
+  margin: 0;
+  flex: 1;
+}
+
+.closeButton {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.closeButton:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 1);
+  transform: scale(1.1);
+}
+
+.manifestoWrapper {
+  padding: 60px 40px 40px;
+}
+
+/* Mobile modal adjustments */
+@media (max-width: 768px) {
+  .modalContent {
+    width: 95vw;
+    max-width: 95vw;
+  }
+  
+  .manifestoWrapper {
+    padding: 30px 20px;
+  }
+  
+  .manifestoTitle {
+    font-size: 24px;
+    margin-bottom: 30px;
+  }
+  
+  .lineContainer {
+    margin-bottom: 20px;
+    gap: 15px;
+  }
+  
+  .line {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  
+  .lineNumber {
+    font-size: 12px;
+    min-width: 25px;
+  }
+}
