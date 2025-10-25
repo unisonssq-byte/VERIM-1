@@ -144,7 +144,7 @@ export const Hero = () => {
             const featuresSection = document.getElementById('features');
             if (featuresSection) {
               const elementPosition = featuresSection.offsetTop;
-              const offsetPosition = elementPosition - 20; // Отступ 80px сверху
+              const offsetPosition = elementPosition - 150; // Отступ 80px сверху
               
               window.scrollTo({
                 top: offsetPosition,

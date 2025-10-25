@@ -80,6 +80,10 @@ export const Features = () => {
                 <p className={styles.cardDescription}>{feature.description}</p>
               </div>
               
+              {/* Corner elements */}
+              <div className={styles.cornerTopLeft} />
+              <div className={styles.cornerBottomRight} />
+              
               {/* Hover glow effect */}
               <div className={styles.cardGlow} />
             </motion.div>

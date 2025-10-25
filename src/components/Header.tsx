@@ -95,7 +95,7 @@ export const Header = () => {
               whileTap={{ scale: 0.95 }}
               onClick={(e) => {
                 e.stopPropagation();
-                window.open('https://www.google.com/maps/place/20%C2%B037\'37.0%22S+166%C2%B018\'02.0%22E/@-20.6254334,166.3050956,886m/data=!3m1!1e3!4m4!3m3!8m2!3d-20.626944!4d166.300556?hl=en&entry=ttu&g_ep=EgoyMDI1MTAyMi4wIKXMDSoASAFQAw%3D%3D', '_blank');
+                scrollToSection('hero');
               }}
             >
               <span className={styles.logoText}>VERA</span>
@@ -167,27 +167,11 @@ export const Header = () => {
             exit={{ opacity: 0 }}
             onClick={() => setShowMerchandiseModal(false)}
           >
-            <motion.div
-              className={styles.merchandiseContent}
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.8, opacity: 0 }}
+            <GlitchVideo 
+              src="/video.mp4"
+              className={styles.merchandiseVideo}
               onClick={(e) => e.stopPropagation()}
-            >
-              <GlitchVideo 
-                src="/video.mp4"
-                className={styles.merchandiseVideo}
-                onClick={(e) => e.stopPropagation()}
-              />
-              <motion.button
-                className={styles.closeButton}
-                onClick={() => setShowMerchandiseModal(false)}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                ×
-              </motion.button>
-            </motion.div>
+            />
           </motion.div>
         )}
       </AnimatePresence>

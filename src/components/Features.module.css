@@ -1,7 +1,7 @@
 /* Features Section - Dotify-inspired cards with glass morphism */
 .features {
-  min-height: 100vh;
-  padding: 60px 0;
+  
+  padding: 40px 20px 100px;
   background: linear-gradient(
     135deg,
     var(--color-black) 0%,
@@ -26,11 +26,26 @@
 }
 
 .container {
-  max-width: 1200px;
+  max-width: var(--features-max-width, 1200px);
+  width: var(--features-width, 100%);
   margin: 0 auto;
   padding: 0 24px;
   position: relative;
   z-index: 2;
+}
+
+/* Width control classes */
+.container.narrow {
+  max-width: 900px;
+}
+
+.container.wide {
+  max-width: 1400px;
+}
+
+.container.fullWidth {
+  max-width: none;
+  width: 100%;
 }
 
 /* Header */
@@ -190,38 +205,36 @@
     0 10px 25px rgba(255, 255, 255, 0.1);
 }
 
-/* Corner borders - only bottom-left and top-right */
-.featureCard::before,
-.featureCard::after {
-  content: '';
+/* Corner elements - using same approach as CardTemplateA */
+.cornerTopLeft {
   position: absolute;
+  top: 8px;
+  left: 8px;
   width: 20px;
   height: 20px;
-  border: 2px solid rgba(255, 255, 255, 0.4);
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  border-left: 2px solid rgba(255, 255, 255, 0);
+  border-top: 2px solid rgba(255, 255, 255, 0);
+  opacity: 1;
+  transition: all 0.4s ease;
   z-index: 4;
 }
 
-.featureCard::before {
+.cornerBottomRight {
+  position: absolute;
   bottom: 8px;
-  left: 8px;
-  border-top: none;
-  border-right: none;
-  border-bottom-left-radius: 4px;
-}
-
-.featureCard::after {
-  top: 8px;
   right: 8px;
-  border-bottom: none;
-  border-left: none;
-  border-top-right-radius: 4px;
+  width: 20px;
+  height: 20px;
+  border-right: 2px solid rgba(255, 255, 255, 0);
+  border-bottom: 2px solid rgba(255, 255, 255, 0);
+  opacity: 1;
+  transition: all 0.4s ease;
+  z-index: 4;
 }
 
-.featureCard:hover::before,
-.featureCard:hover::after {
-  opacity: 1;
+.featureCard:hover .cornerTopLeft,
+.featureCard:hover .cornerBottomRight {
+  border-color: rgba(255, 255, 255, 0.6);
 }
 
 /* Mobile responsive */

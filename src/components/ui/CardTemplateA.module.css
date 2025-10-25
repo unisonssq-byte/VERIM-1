@@ -91,76 +91,39 @@
   opacity: 1;
 }
 
-/* Угловые элементы - всегда видны, крутые угловые детали */
+/* Угловые линии - только при наведении */
 .card::before,
 .card::after {
   content: '';
   position: absolute;
-  width: 25px;
-  height: 25px;
-  border: 2px solid rgba(169, 169, 169, 0.7);
-  opacity: 1;
+  width: 20px;
+  height: 20px;
+  opacity: 0;
   transition: all 0.4s ease;
   z-index: 2;
 }
 
 .card::before {
-  bottom: 12px;
-  left: 12px;
-  border-top: none;
-  border-right: none;
-  border-bottom-left-radius: 4px;
+  bottom: 8px;
+  left: 8px;
+  border-left: 2px solid rgba(255, 255, 255, 0.9);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.9);
 }
 
 .card::after {
-  top: 12px;
-  right: 12px;
-  border-bottom: none;
-  border-left: none;
-  border-top-right-radius: 4px;
+  top: 8px;
+  right: 8px;
+  border-top: 2px solid rgba(255, 255, 255, 0.9);
+  border-right: 2px solid rgba(255, 255, 255, 0.9);
 }
 
 /* Hover эффекты для углов */
 .card:hover::before,
 .card:hover::after {
-  border-color: rgba(255, 255, 255, 0.9);
-  transform: scale(1.1);
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-}
-
-/* Дополнительные угловые элементы */
-.cornerTopLeft {
-  position: absolute;
-  top: 8px;
-  left: 8px;
-  width: 20px;
-  height: 20px;
-  border-left: 2px solid rgba(169, 169, 169, 0.6);
-  border-top: 2px solid rgba(169, 169, 169, 0.6);
   opacity: 1;
-  transition: all 0.4s ease;
-  z-index: 3;
 }
 
-.cornerBottomRight {
-  position: absolute;
-  bottom: 8px;
-  right: 8px;
-  width: 20px;
-  height: 20px;
-  border-right: 2px solid rgba(169, 169, 169, 0.6);
-  border-bottom: 2px solid rgba(169, 169, 169, 0.6);
-  opacity: 1;
-  transition: all 0.4s ease;
-  z-index: 3;
-}
 
-.card:hover .cornerTopLeft,
-.card:hover .cornerBottomRight {
-  border-color: rgba(255, 255, 255, 0.9);
-  transform: scale(1.15);
-  box-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
-}
 
 /* Bottom glow line */
 .glowLine {
