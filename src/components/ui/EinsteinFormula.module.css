@@ -263,9 +263,13 @@
   color: rgba(255, 255, 255, 0.8);
 }
 
-/* Глитч эффекты */
+/* Глитч эффекты для формулы (менее интенсивные) */
 .formula {
-  animation: staticNoise 3s infinite linear, formulaFlicker 5s infinite ease-in-out;
+  animation: 
+    staticNoise 3s infinite linear, 
+    formulaFlicker 5s infinite ease-in-out,
+    formulaGlitchMild 4s infinite ease-in-out,
+    formulaShakeMild 8s infinite ease-in-out;
 }
 
 @keyframes staticNoise {
@@ -334,5 +338,56 @@
     font-size: 16px;
     letter-spacing: 0.5px;
     padding: 12px;
+  }
+}
+
+/* Менее интенсивные глитч анимации для формулы */
+@keyframes formulaGlitchMild {
+  0%, 95%, 100% {
+    transform: translate(0, 0) scale(1);
+    filter: hue-rotate(0deg) contrast(1) brightness(1);
+  }
+  2% {
+    transform: translate(1px, -0.5px) scale(1.005);
+    filter: hue-rotate(30deg) contrast(1.1) brightness(0.95);
+  }
+  4% {
+    transform: translate(-0.5px, 1px) scale(0.995);
+    filter: hue-rotate(-20deg) contrast(0.9) brightness(1.05);
+  }
+  96% {
+    transform: translate(0.5px, 0.5px) scale(1.002);
+    filter: hue-rotate(10deg) contrast(1.05) brightness(0.98);
+  }
+  98% {
+    transform: translate(-0.3px, -0.3px) scale(0.998);
+    filter: hue-rotate(-10deg) contrast(0.95) brightness(1.02);
+  }
+}
+
+@keyframes formulaShakeMild {
+  0%, 90%, 100% {
+    transform: translateX(0) translateY(0) rotate(0deg);
+  }
+  91% {
+    transform: translateX(0.5px) translateY(-0.3px) rotate(0.1deg);
+  }
+  92% {
+    transform: translateX(-0.3px) translateY(0.5px) rotate(-0.1deg);
+  }
+  93% {
+    transform: translateX(0.2px) translateY(0.2px) rotate(0.05deg);
+  }
+  94% {
+    transform: translateX(-0.4px) translateY(-0.2px) rotate(-0.05deg);
+  }
+  95% {
+    transform: translateX(0.3px) translateY(-0.4px) rotate(0.08deg);
+  }
+  96% {
+    transform: translateX(-0.2px) translateY(0.3px) rotate(-0.03deg);
+  }
+  98% {
+    transform: translateX(0.1px) translateY(-0.1px) rotate(0.02deg);
   }
 }

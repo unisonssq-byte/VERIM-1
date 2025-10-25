@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { GlitchVideo } from './ui/GlitchVideo';
 import styles from './Header.module.css';
 
 export const Header = () => {
@@ -94,7 +95,7 @@ export const Header = () => {
               whileTap={{ scale: 0.95 }}
               onClick={(e) => {
                 e.stopPropagation();
-                scrollToSection('hero');
+                window.open('https://www.google.com/maps/place/20%C2%B037\'37.0%22S+166%C2%B018\'02.0%22E/@-20.6254334,166.3050956,886m/data=!3m1!1e3!4m4!3m3!8m2!3d-20.626944!4d166.300556?hl=en&entry=ttu&g_ep=EgoyMDI1MTAyMi4wIKXMDSoASAFQAw%3D%3D', '_blank');
               }}
             >
               <span className={styles.logoText}>VERA</span>
@@ -147,15 +148,11 @@ export const Header = () => {
             exit={{ opacity: 0 }}
             onClick={() => setShowVideoModal(false)}
           >
-            <video 
+            <GlitchVideo 
+              src="/video.mp4"
               className={styles.video}
-              autoPlay 
-              loop 
-              muted
               onClick={(e) => e.stopPropagation()}
-            >
-              <source src="/video.mp4" type="video/mp4" />
-            </video>
+            />
           </motion.div>
         )}
       </AnimatePresence>
@@ -177,15 +174,11 @@ export const Header = () => {
               exit={{ scale: 0.8, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
             >
-              <video 
+              <GlitchVideo 
+                src="/video.mp4"
                 className={styles.merchandiseVideo}
-                autoPlay 
-                loop 
-                muted
                 onClick={(e) => e.stopPropagation()}
-              >
-                <source src="/video.mp4" type="video/mp4" />
-              </video>
+              />
               <motion.button
                 className={styles.closeButton}
                 onClick={() => setShowMerchandiseModal(false)}

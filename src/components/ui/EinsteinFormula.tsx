@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
+import { GlitchFormula } from './GlitchFormula';
 import styles from './EinsteinFormula.module.css';
 
 export const EinsteinFormula = () => {
@@ -90,21 +91,21 @@ export const EinsteinFormula = () => {
       viewport={{ once: true }}
       transition={{ duration: 0.8, delay: 0.3 }}
     >
-      <motion.div
-        className={styles.formula}
-        animate={{
-          textShadow: [
-            '0 0 10px rgba(255, 255, 255, 0.3)',
-            '0 0 20px rgba(255, 255, 255, 0.5)',
-            '0 0 10px rgba(255, 255, 255, 0.3)'
-          ]
-        }}
-        transition={{
-          duration: 2,
-          repeat: Infinity,
-          ease: 'easeInOut'
-        }}
-      >
+      <GlitchFormula className={styles.formula}>
+        <motion.div
+          animate={{
+            textShadow: [
+              '0 0 10px rgba(255, 255, 255, 0.3)',
+              '0 0 20px rgba(255, 255, 255, 0.5)',
+              '0 0 10px rgba(255, 255, 255, 0.3)'
+            ]
+          }}
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+            ease: 'easeInOut'
+          }}
+        >
         <span className={styles.formulaContent}>
           <span className={styles.glitchChar}>{displayFormula.R1}</span>
           <sub className={styles.glitchChar}>{displayFormula.sub1}</sub>
@@ -130,7 +131,8 @@ export const EinsteinFormula = () => {
           <span className={styles.glitchChar}>{displayFormula.T}</span>
           <sub className={styles.glitchChar}>{displayFormula.sub4}</sub>
         </span>
-      </motion.div>
+        </motion.div>
+      </GlitchFormula>
       
       {/* Дубликаты формулы */}
       {duplicates.map((duplicate) => (
