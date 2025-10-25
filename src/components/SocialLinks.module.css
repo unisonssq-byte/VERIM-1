@@ -1,0 +1,204 @@
+/* Social Links Section */
+.socialSection {
+  padding: 60px 20px;
+  position: relative;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.98) 0%,
+    var(--color-black) 50%,
+    rgba(0, 0, 0, 0.98) 100%
+  );
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.title {
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 50px;
+  letter-spacing: 0.15em;
+  color: var(--color-white);
+  font-family: 'Space Mono', monospace;
+  position: relative;
+}
+
+.title::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 2px;
+  background: linear-gradient(90deg, 
+    transparent 0%,
+    rgba(255, 255, 255, 0.6) 50%,
+    transparent 100%
+  );
+}
+
+.socialGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* Social Block - стиль как у артефактов */
+.socialBlock {
+  position: relative;
+  padding: 40px 20px;
+  border-radius: 16px;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  
+  /* Убираем фоновый градиент по умолчанию */
+  background: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  
+  /* Серая прерывистая рамка */
+  border: 2px dashed rgba(128, 128, 128, 0.6);
+  
+  /* Минимальные тени */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  
+  cursor: pointer;
+  overflow: visible;
+  
+  /* Переходы как у логотипа */
+  transition: transform 0.3s ease-out, background 0.3s ease-out, border-color 0.3s ease-out;
+}
+
+/* Hover эффект - простое увеличение как у логотипа */
+.socialBlock:hover {
+  /* Появляется белый градиентный фон при наведении */
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.15) 0%,
+    rgba(255, 255, 255, 0.08) 50%,
+    rgba(255, 255, 255, 0.15) 100%);
+  
+  /* Рамка становится более яркой */
+  border-color: rgba(255, 255, 255, 0.8);
+}
+
+/* Угловые элементы - только линии в углах */
+.cornerTopLeft {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  width: 20px;
+  height: 20px;
+  border-left: 2px solid rgba(169, 169, 169, 0.6);
+  border-top: 2px solid rgba(169, 169, 169, 0.6);
+  border-right: none;
+  border-bottom: none;
+  background: transparent;
+  transition: all 0.3s ease-out;
+  z-index: 3;
+}
+
+.cornerBottomRight {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  width: 20px;
+  height: 20px;
+  border-right: 2px solid rgba(169, 169, 169, 0.6);
+  border-bottom: 2px solid rgba(169, 169, 169, 0.6);
+  border-left: none;
+  border-top: none;
+  background: transparent;
+  transition: all 0.3s ease-out;
+  z-index: 3;
+}
+
+.socialBlock:hover .cornerTopLeft,
+.socialBlock:hover .cornerBottomRight {
+  border-color: rgba(255, 255, 255, 0.9);
+  transform: scale(1.15);
+}
+
+.iconContainer {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease-out;
+}
+
+.socialIcon {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  opacity: 0.7; /* Полупрозрачность */
+  transition: all 0.3s ease-out;
+  
+  /* Убираем белый фон и делаем иконку белой */
+  filter: brightness(0) invert(1) opacity(0.7);
+  mix-blend-mode: screen;
+}
+
+.socialBlock:hover .socialIcon {
+  transform: scale(1.1);
+  /* При наведении становится ярче и непрозрачнее */
+  filter: brightness(0) invert(1) opacity(1);
+}
+
+.socialName {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-white);
+  font-family: 'Space Mono', monospace;
+  letter-spacing: 0.1em;
+  margin: 0;
+  transition: all 0.3s ease-out;
+}
+
+.socialBlock:hover .socialName {
+  color: rgba(255, 255, 255, 0.9);
+  transform: translateY(-2px);
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .socialSection {
+    padding: 40px 20px;
+  }
+  
+  .socialGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 280px;
+  }
+  
+  .socialBlock {
+    padding: 30px 15px;
+  }
+  
+  .iconContainer {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .socialIcon {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .title {
+    margin-bottom: 30px;
+  }
+}

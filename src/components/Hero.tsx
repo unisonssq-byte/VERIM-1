@@ -104,7 +104,7 @@ export const Hero = () => {
             onClick={openModal}
           >
             <img 
-              src="/LOGO.JPG" 
+              src="/logo.png" 
               alt="VERA Logo" 
               className={styles.logoImage}
               onError={(e) => {
@@ -143,9 +143,12 @@ export const Hero = () => {
           onClick={() => {
             const featuresSection = document.getElementById('features');
             if (featuresSection) {
-              featuresSection.scrollIntoView({ 
-                behavior: 'smooth',
-                block: 'start'
+              const elementPosition = featuresSection.offsetTop;
+              const offsetPosition = elementPosition - 20; // Отступ 80px сверху
+              
+              window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
               });
             }
           }}
@@ -164,7 +167,7 @@ export const Hero = () => {
               ease: 'easeInOut'
             }}
           >
-            <path d="M7 13l3 3 7-3" />
+            <path d="M7 13l5 5 5-5" />
             <path d="M7 6l5 5 5-5" />
           </motion.svg>
         </motion.div>

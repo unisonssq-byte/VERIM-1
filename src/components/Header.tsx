@@ -7,12 +7,14 @@ export const Header = () => {
   const [lastScrollY, setLastScrollY] = useState(0);
   const [activeSection, setActiveSection] = useState('hero');
   const [showVideoModal, setShowVideoModal] = useState(false);
+  const [showMerchandiseModal, setShowMerchandiseModal] = useState(false);
 
   // Navigation items
   const navItems = [
     { id: 'hero', label: 'VERA' },
     { id: 'features', label: 'About' },
     { id: 'manifesto', label: 'Manifesto' },
+    { id: 'merchandise', label: 'Merchandise' },
     { id: 'projects', label: 'Artifacts' },
     { id: 'faq', label: 'FAQ' },
     { id: 'contacts', label: 'Contacts' }
@@ -53,6 +55,12 @@ export const Header = () => {
     // Special handling for Manifesto - show video modal instead
     if (sectionId === 'manifesto') {
       setShowVideoModal(true);
+      return;
+    }
+    
+    // Special handling for Merchandise - show image modal instead
+    if (sectionId === 'merchandise') {
+      setShowMerchandiseModal(true);
       return;
     }
 
@@ -148,6 +156,45 @@ export const Header = () => {
             >
               <source src="/video.mp4" type="video/mp4" />
             </video>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Video Modal for Merchandise */}
+      <AnimatePresence>
+        {showMerchandiseModal && (
+          <motion.div
+            className={styles.merchandiseModal}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setShowMerchandiseModal(false)}
+          >
+            <motion.div
+              className={styles.merchandiseContent}
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <video 
+                className={styles.merchandiseVideo}
+                autoPlay 
+                loop 
+                muted
+                onClick={(e) => e.stopPropagation()}
+              >
+                <source src="/video.mp4" type="video/mp4" />
+              </video>
+              <motion.button
+                className={styles.closeButton}
+                onClick={() => setShowMerchandiseModal(false)}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                ×
+              </motion.button>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

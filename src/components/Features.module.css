@@ -1,7 +1,7 @@
 /* Features Section - Dotify-inspired cards with glass morphism */
 .features {
   min-height: 100vh;
-  padding: 120px 0;
+  padding: 60px 0;
   background: linear-gradient(
     135deg,
     var(--color-black) 0%,
@@ -278,4 +278,10 @@
   .featureCard {
     padding: 40px;
   }
+}
+
+/* Higher positioned scroll arrow for Features section */
+.scrollArrowHigher {
+  bottom: 200px !important;
+  left: 49% !important;
 }

@@ -48,6 +48,10 @@ export const CardTemplateA: React.FC<CardTemplateAProps> = ({
         perspective: 1000
       }}
     >
+      {/* Дополнительные угловые элементы */}
+      <div className={styles.cornerTopLeft}></div>
+      <div className={styles.cornerBottomRight}></div>
+      
       {/* Glass card overlay */}
       <div className={styles.cardOverlay} />
       

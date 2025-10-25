@@ -1,4 +1,4 @@
-/* Card Container - Glass morphism with enhanced 3D effects */
+/* Card Container - Дизайн из серых черточек с угловыми элементами */
 .card {
   position: relative;
   width: 100%;
@@ -6,31 +6,40 @@
   padding: 48px 24px;
   border-radius: 16px;
   
-  /* Glass background */
-  background: rgba(0, 0, 0, 0.4);
+  /* Убираем фоновый градиент по умолчанию */
+  background: rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   
-  /* Remove default border for custom gradient border */
-  border: 0;
+  /* Серая прерывистая рамка */
+  border: 2px dashed rgba(128, 128, 128, 0.6);
   
-  /* Enhanced shadows */
+  /* Минимальные тени */
   box-shadow: 
-    0 10px 15px -5px rgba(0, 0, 0, 0.2),
-    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    0 4px 8px rgba(0, 0, 0, 0.1);
   
   cursor: pointer;
-  overflow: hidden;
+  overflow: visible;
   
-  /* Enhanced transitions */
-  transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  /* Плавные переходы */
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   transform-style: preserve-3d;
   perspective: 1000px;
 }
 
-/* Hover 3D effect - matching dotify style */
+/* Hover эффект с появлением градиента */
 .card:hover {
   transform: translateY(-15px) rotateX(10deg) rotateY(-10deg) scale(1.05);
+  
+  /* Появляется градиентный фон при наведении */
+  background: linear-gradient(135deg, 
+    rgba(139, 69, 19, 0.3) 0%,
+    rgba(160, 82, 45, 0.2) 50%,
+    rgba(139, 69, 19, 0.3) 100%);
+  
+  /* Рамка становится более яркой */
+  border-color: rgba(255, 255, 255, 0.8);
+  
   box-shadow: 
     0 30px 30px -10px rgba(0, 0, 0, 0.5), 
     0 20px 15px -5px rgba(0, 0, 0, 0.3), 
@@ -82,37 +91,75 @@
   opacity: 1;
 }
 
-/* Corner borders - only bottom-left and top-right */
+/* Угловые элементы - всегда видны, крутые угловые детали */
 .card::before,
 .card::after {
   content: '';
   position: absolute;
-  width: 20px;
-  height: 20px;
-  border: 2px solid rgba(255, 255, 255, 0.4);
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  width: 25px;
+  height: 25px;
+  border: 2px solid rgba(169, 169, 169, 0.7);
+  opacity: 1;
+  transition: all 0.4s ease;
+  z-index: 2;
 }
 
 .card::before {
-  bottom: 8px;
-  left: 8px;
+  bottom: 12px;
+  left: 12px;
   border-top: none;
   border-right: none;
   border-bottom-left-radius: 4px;
 }
 
 .card::after {
-  top: 8px;
-  right: 8px;
+  top: 12px;
+  right: 12px;
   border-bottom: none;
   border-left: none;
   border-top-right-radius: 4px;
 }
 
+/* Hover эффекты для углов */
 .card:hover::before,
 .card:hover::after {
+  border-color: rgba(255, 255, 255, 0.9);
+  transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+/* Дополнительные угловые элементы */
+.cornerTopLeft {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  width: 20px;
+  height: 20px;
+  border-left: 2px solid rgba(169, 169, 169, 0.6);
+  border-top: 2px solid rgba(169, 169, 169, 0.6);
   opacity: 1;
+  transition: all 0.4s ease;
+  z-index: 3;
+}
+
+.cornerBottomRight {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  width: 20px;
+  height: 20px;
+  border-right: 2px solid rgba(169, 169, 169, 0.6);
+  border-bottom: 2px solid rgba(169, 169, 169, 0.6);
+  opacity: 1;
+  transition: all 0.4s ease;
+  z-index: 3;
+}
+
+.card:hover .cornerTopLeft,
+.card:hover .cornerBottomRight {
+  border-color: rgba(255, 255, 255, 0.9);
+  transform: scale(1.15);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
 }
 
 /* Bottom glow line */

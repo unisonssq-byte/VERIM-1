@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
 import { CardTemplateA } from './ui/CardTemplateA';
+import { EinsteinFormula } from './ui/EinsteinFormula';
+
 import styles from './Projects.module.css';
 
 export const Projects = () => {
@@ -80,6 +82,8 @@ export const Projects = () => {
             </motion.div>
           ))}
         </motion.div>
+        
+        <EinsteinFormula />
       </div>
     </section>
   );

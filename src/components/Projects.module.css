@@ -1,6 +1,5 @@
 .projects {
-  min-height: 100vh;
-  padding: 80px 20px;
+  padding: 40px 20px 0px;
   position: relative;
 }
 
@@ -13,7 +12,7 @@
   font-size: clamp(40px, 6vw, 72px);
   font-weight: 700;
   text-align: center;
-  margin-bottom: 80px;
+  margin-bottom: 50px;
   letter-spacing: 0.1em;
   color: var(--color-white);
   font-family: 'Space Mono', monospace;
@@ -39,6 +38,29 @@
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 24px;
   perspective: 1000px;
+}
+
+@media (min-width: 390px) and (max-width: 500px) {
+  .grid {
+    margin-left: 40px; /* Регулируемый отступ слева для артефактов на экранах 320-800px */
+  }
+}
+@media (width: 375px) {
+  .grid {
+    margin-left: 10px !important; /* Регулируемый отступ слева для артефактов на экранах 320-800px */
+  }
+}
+
+@media (width: 390px) {
+  .grid {
+    margin-left: 20px !important; /* Регулируемый отступ слева для артефактов на экранах 320-800px */
+  }
+}
+
+@media (min-width: 500px) and (max-width: 800px) {
+  .grid {
+    margin-left: 220px !important; /* Регулируемый отступ слева для артефактов на экранах 320-800px */
+  }
 }
 
 @media (max-width: 768px) {

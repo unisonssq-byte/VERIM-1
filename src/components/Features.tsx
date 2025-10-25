@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { ScrollArrow } from './ui/ScrollArrow';
 import styles from './Features.module.css';
 
 interface Feature {
@@ -85,6 +86,9 @@ export const Features = () => {
           ))}
         </div>
       </div>
+      
+      {/* Scroll to next section */}
+      <ScrollArrow targetId="projects" className={styles.scrollArrowHigher} />
     </section>
   );
 };

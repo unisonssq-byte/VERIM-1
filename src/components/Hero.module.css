@@ -99,18 +99,18 @@
   }
 }
 
-/* Logo container without background */
+/* Logo container with smooth scaling */
 .logoContainer {
   margin-bottom: 80px;
   cursor: pointer;
   display: inline-block;
-  transition: all 0.3s ease;
+  transition: all 0.4s ease-out;
 }
 
 .logoPlaceholder {
-  width: 200px;
-  height: 200px;
-  border-radius: 16px;
+  width: 280px;
+  height: 280px;
+  border-radius: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -124,11 +124,16 @@
 }
 
 .logoImage {
-  width: 200px;
-  height: 200px;
+  width: 280px;
+  height: 280px;
   object-fit: contain;
-  border-radius: 16px;
-  transition: all 0.3s ease;
+  border-radius: 20px;
+  filter: drop-shadow(0 8px 16px rgba(255, 255, 255, 0.1));
+  transition: transform 0.3s ease-out;
+}
+
+.logoImage:hover {
+  transform: scale(1.15);
 }
 
 .logoText {
@@ -166,7 +171,7 @@
 /* Scroll down arrow */
 .scrollArrow {
   position: absolute;
-  bottom: 40px;
+  bottom: 60px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 10;
@@ -188,20 +193,12 @@
   color: rgba(255, 255, 255, 0.8);
   
   transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  
-  box-shadow: 
-    0 8px 25px rgba(0, 0, 0, 0.4),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 .scrollArrow:hover {
-  transform: translateX(-50%) translateY(-4px) scale(1.1);
+  transform: translateX(-50%) translateY(-6px) scale(1.1);
   background: rgba(255, 255, 255, 0.1);
   color: rgba(255, 255, 255, 1);
-  box-shadow: 
-    0 12px 35px rgba(0, 0, 0, 0.5),
-    inset 0 1px 0 rgba(255, 255, 255, 0.3),
-    0 0 20px rgba(255, 255, 255, 0.1);
 }
 
 /* Mobile responsive */
@@ -424,5 +421,34 @@
   .lineNumber {
     font-size: 12px;
     min-width: 25px;
+  }
+}
+
+@media (max-width: 390px) {
+  .scrollArrow {
+    left: auto;
+    right: 180px; /* нужный вам отступ справа */
+    transform: none; /* по необходимости */
+  }
+}
+@media (min-width: 1px) and (max-width: 375px) {
+  .scrollArrow {
+    left: 150px !important;
+    right: 150px !important; /* нужный вам отступ справа */
+    transform: none; /* по необходимости */
+  }
+}
+@media (width: 412px) {
+  .scrollArrow {
+    left: 190px !important;
+    right: 150px !important; /* нужный вам отступ справа */
+    transform: none; /* по необходимости */
+  }
+}
+@media (min-width: 1200px) {
+  .scrollArrow {
+    left: 400px !important;
+    right: 150px !important; /* нужный вам отступ справа */
+    transform: none; /* по необходимости */
   }
 }
